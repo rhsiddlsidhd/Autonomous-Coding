@@ -68,17 +68,29 @@ const Header = () => {
                         <li className="sub-wrap-two-list-twotitle">
                           <span>부츠</span>
                           <ul>
-                            <li>4</li>
-                            <li>5</li>
-                            <li>6</li>
+                            <li>
+                              <span>4</span>
+                            </li>
+                            <li>
+                              <span>5</span>
+                            </li>
+                            <li>
+                              <span>6</span>
+                            </li>
                           </ul>
                         </li>
                         <li className="sub-wrap-two-list-threetitle">
                           <span>슬리퍼</span>
                           <ul>
-                            <li>7</li>
-                            <li>8</li>
-                            <li>9</li>
+                            <li>
+                              <span>7</span>
+                            </li>
+                            <li>
+                              <span>8</span>
+                            </li>
+                            <li>
+                              <span>9</span>
+                            </li>
                           </ul>
                         </li>
                       </ul>

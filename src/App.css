@@ -196,7 +196,7 @@
   justify-content: space-evenly;
   padding-left: 10px;
   border-left: 1px solid rgba(128, 128, 128, 0.459);
-  /* background-color: red; */
+  background-color: aquamarine;
 }
 
 .nav_wrap-brand-shoes
@@ -225,7 +225,7 @@
   display: flex;
   width: 60%;
   height: 300px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   justify-content: space-between;
 }
 
@@ -234,14 +234,14 @@
   flex-direction: column;
   width: 50%;
   height: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .sub-wrap-two-list-twotitle {
   display: flex;
   width: 60%;
   height: 300px;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   justify-content: space-between;
 }
 
@@ -250,14 +250,14 @@
   flex-direction: column;
   width: 50%;
   height: 100%;
-  border: 1px solid gold;
+  /* border: 1px solid gold; */
 }
 
 .sub-wrap-two-list-threetitle {
   display: flex;
   width: 60%;
   height: 300px;
-  border: 1px solid greenyellow;
+  /* border: 1px solid greenyellow; */
   justify-content: space-between;
 }
 
@@ -266,7 +266,7 @@
   flex-direction: column;
   width: 50%;
   height: 100%;
-  border: 1px solid brown;
+  /* border: 1px solid brown; */
 }
 
 /* kids서브메뉴 */
