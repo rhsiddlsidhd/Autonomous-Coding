@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.459);
+}
+
+.header-container {
+  max-width: 1560px;
+  min-width: 1440px;
+  height: 100px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_left {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 100px;
+}
+
+.header_left-logo {
+  width: 90px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.nav_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_wrap ul {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.nav_wrap-brand-new span,
+.nav_wrap-brand-best span,
+.nav_wrap-brand-brand span,
+.nav_wrap-brand-kids span,
+.nav_wrap-brand-shoes span {
+  cursor: pointer;
+}
+
+.nav_wrap-brand {
+  padding-right: 20px;
+}
+
+.nav_wrap-event {
+  width: 100%;
+  padding-left: 20px;
+  border-left: 1px solid rgba(128, 128, 128, 0.459);
+}
+
+/* header right */
+.header_right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+
+  width: 30%;
+  height: 100px;
+}
+
+.header_right-icon-wrap {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.header_right-icon-wrap h2 .fa-user {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.header_right-icon-wrap h2 .fa-cart-shopping {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.header_right-search {
+  position: relative;
+  border-bottom: 1px solid gray;
+}
+
+.header_right-search input {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.header_right-search .fa-magnifying-glass {
+  position: absolute;
+  left: 150px;
+  top: 4px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* brand서브메뉴 */
+
+.nav_wrap-brand-brand {
+  position: relative;
+}
+
+.nav_wrap-brand-brand .sub {
+  /* fixed 적용 => 화면 전체 bgc컬러 지정해결 */
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 300px;
+}
+
+.nav_wrap-brand-brand .sub .sub-wrap {
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-evenly;
+
+  background-color: white;
+}
+
+.nav_wrap-brand-brand .sub .sub-wrap .sub-wrap-one-title {
+  width: 15%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.nav_wrap-brand-brand .sub .sub-wrap .sub-wrap-one-list {
+  width: 60%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10px;
+  border-left: 1px solid rgba(128, 128, 128, 0.459);
+}
+
+.nav_wrap-brand-brand .sub .sub-wrap .sub-wrap-one-list li {
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* shoes서브메뉴 */
+.nav_wrap-brand-shoes {
+  position: relative;
+}
+
+.nav_wrap-brand-shoes .sub {
+  /* fixed 적용 => 화면 전체 bgc컬러 지정해결 */
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 300px;
+}
+
+.nav_wrap-brand-shoes .sub .sub-wrap {
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-evenly;
+
+  background-color: white;
+}
+
+.nav_wrap-brand-shoes .sub .sub-wrap .sub-wrap-two-title {
+  width: 15%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  /* border: 1px solid pink; */
+}
+
+.nav_wrap-brand-shoes .sub .sub-wrap .sub-wrap-two-list {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10px;
+  border-left: 1px solid rgba(128, 128, 128, 0.459);
+  background-color: aquamarine;
+}
+
+.nav_wrap-brand-shoes
+  .sub
+  .sub-wrap
+  .sub-wrap-two-list
+  .sub-wrap-two-list-onetitle
+  span,
+.nav_wrap-brand-shoes
+  .sub
+  .sub-wrap
+  .sub-wrap-two-list
+  .sub-wrap-two-list-twotitle
+  span,
+.nav_wrap-brand-shoes
+  .sub
+  .sub-wrap
+  .sub-wrap-two-list
+  .sub-wrap-two-list-threetitle
+  span {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.sub-wrap-two-list-onetitle {
+  display: flex;
+  width: 60%;
+  height: 300px;
+  /* border: 1px solid red; */
+  justify-content: space-between;
+}
+
+.sub-wrap-two-list-onetitle ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid blue; */
+}
+
+.sub-wrap-two-list-twotitle {
+  display: flex;
+  width: 60%;
+  height: 300px;
+  /* border: 1px solid pink; */
+  justify-content: space-between;
+}
+
+.sub-wrap-two-list-twotitle ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid gold; */
+}
+
+.sub-wrap-two-list-threetitle {
+  display: flex;
+  width: 60%;
+  height: 300px;
+  /* border: 1px solid greenyellow; */
+  justify-content: space-between;
+}
+
+.sub-wrap-two-list-threetitle ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid brown; */
+}
+
+/* kids서브메뉴 */
+
+.nav_wrap-brand-kids {
+  position: relative;
+}
+
+.nav_wrap-brand-kids .sub {
+  /* fixed 적용 => 화면 전체 bgc컬러 지정해결 */
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 300px;
+  background-color: white;
+}
+
+.nav_wrap-brand-kids .sub .sub-wrap .sub-wrap-three-title {
+  width: 23%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
