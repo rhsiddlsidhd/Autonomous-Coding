@@ -1,7 +1,7 @@
 const Cart = () => {
   return (
     <div>
-      <h2>cart 페이지 입니다</h2>
+      <h1>이곳은 Cart 페이지 입니다</h1>
     </div>
   );
 };
