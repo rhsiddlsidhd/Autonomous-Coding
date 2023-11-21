@@ -1,31 +1,31 @@
 import styled from "styled-components";
 const Detail = () => {
   return (
-    <div className="detail">
-      <div className="detail-left">
-        <div className="detail-left-img">
+    <ProductDetail>
+      <ProductImgContainer>
+        <ProductImg>
           <img src="#" alt="이미지" />
-        </div>
-        <div className="detail-left-bullet">
+        </ProductImg>
+        <ProductBullet>
           <span>총알</span>
           <span>총알</span>
           <span>총알</span>
           <span>총알</span>
           <span>총알</span>
-        </div>
-      </div>
-      <div className="detail-right">
-        <div className="detail-logo-productname">
-          <div className="detail-logo">
+        </ProductBullet>
+      </ProductImgContainer>
+      <ProductDescription>
+        <ProductInfoContainer>
+          <BrandLogoContainer>
             <span>POLO</span>
             <button>♡</button>
             <span>
               브랜드관 <i class="fa-solid fa-chevron-right"></i>
             </span>
-          </div>
-          <div className="detail-productname">
+          </BrandLogoContainer>
+          <ProductName>
             <h2>베어 자수 케일리 스커프 털 슬리퍼 / RFS11478W</h2>
-          </div>
+          </ProductName>
           <div className="detail-sale">
             <div>
               <span>89,000원</span>
@@ -37,8 +37,8 @@ const Detail = () => {
               <span>75,650원</span>
             </div>
           </div>
-        </div>
-        <div className="detail-review-point">
+        </ProductInfoContainer>
+        <ReviewSaleContainer>
           <div>
             <span>상품리뷰</span>
             <span>☆☆☆☆☆</span>
@@ -59,51 +59,224 @@ const Detail = () => {
             <span>폴더 포인트</span>
             <span>회원 구매 시 890포인트 적립예정</span>
           </div>
-        </div>
-        <div className="detail-size-button">
-          <div className="detail-size">
+        </ReviewSaleContainer>
+        <SizeAmountContainer>
+          <ProductSize>
             <span>사이즈</span>
-            <div className="size-selector">
+            <ProductSizeSelector>
               <label for="size"></label>
-              <select id="size" name="size">
+              <ProductSizeSelectorBar id="size" name="size">
                 <option value="size">사이즈</option>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
                 <option value="xl">Extra Large</option>
-              </select>
-              <div className="size-area">
-                <div className="size-area-up">
+              </ProductSizeSelectorBar>
+              <ProductSizeArea>
+                <ProductSizeAreaContentUp>
                   <div>220</div>
                   <button>X</button>
-                </div>
-                <div className="size-area-down">
+                </ProductSizeAreaContentUp>
+                <ProductSizeAreaContentdown>
                   <div>
                     <button>-</button>
                     <div>1</div>
                     <button>+</button>
                   </div>
                   <div>89,000원</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="amout-wrapper">
-            <div className="amount">
+                </ProductSizeAreaContentdown>
+              </ProductSizeArea>
+            </ProductSizeSelector>
+          </ProductSize>
+          <div>
+            <Amount>
               <span>총 결제금액</span>
               <h2>89,000원</h2>
-            </div>
-            <div className="amount-button">
-              <button className="amount-button-good">♡</button>
-              <button className="amount-button-cart">CART</button>
-              <button className="amount-button-buy">BUY NOW</button>
-            </div>
+            </Amount>
+            <AmountButton>
+              <GoodButton>♡</GoodButton>
+              <CartButton>CART</CartButton>
+              <BuyButton>BUY NOW</BuyButton>
+            </AmountButton>
           </div>
-        </div>
-      </div>
-    </div>
+        </SizeAmountContainer>
+      </ProductDescription>
+    </ProductDetail>
   );
 };
 
 export default Detail;
 // styled
+
+const ProductDetail = styled.div`
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+`;
+
+const ProductImgContainer = styled.div`
+  width: 45%;
+  height: 100vh;
+`;
+
+const ProductImg = styled.div`
+  width: 100%;
+  height: 85vh;
+`;
+const ProductBullet = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ProductDescription = styled.div`
+  width: 45%;
+  height: 100vh;
+`;
+
+const ProductInfoContainer = styled.div`
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid black;
+`;
+
+const BrandLogoContainer = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
+const ProductName = styled.div`
+  margin-top: 15px;
+`;
+
+const ReviewSaleContainer = styled.div`
+  width: 100%;
+  height: 30%;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  & > div > span:first-child {
+    margin-right: 10px;
+    background-color: bisque;
+  }
+  & > div:first-child > span {
+    margin-right: 10px;
+  }
+`;
+
+const SizeAmountContainer = styled.div`
+  width: 100%;
+  height: 30%;
+`;
+
+const ProductSize = styled.div`
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const ProductSizeSelector = styled.div`
+  width: 80%;
+`;
+
+const ProductSizeSelectorBar = styled.select`
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid gray;
+`;
+
+const ProductSizeArea = styled.div`
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(128, 128, 128, 0.678);
+  margin-top: 12px;
+`;
+
+const ProductSizeAreaContentUp = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px 12px 10px;
+  & button {
+    width: 24px;
+  }
+`;
+
+const ProductSizeAreaContentdown = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px 0 10px;
+  & div:first-child {
+    display: flex;
+  }
+  & div:first-child div {
+    display: flex;
+    justify-content: center;
+    width: 24px;
+  }
+  & div:first-child button {
+    width: 24px;
+  }
+`;
+
+const Amount = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  & h2 {
+    margin-left: 10px;
+  }
+`;
+const AmountButton = styled.div`
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const GoodButton = styled.button`
+  width: 10%;
+  height: 100%;
+  border: none;
+  &:hover {
+    background-color: deeppink;
+  }
+`;
+
+const CartButton = styled.button`
+  width: 43%;
+  height: 100%;
+  border: none;
+  background-color: gray;
+  color: beige;
+  &:hover {
+    background-color: beige;
+    color: gray;
+  }
+`;
+
+const BuyButton = styled.button`
+  width: 43%;
+  height: 100%;
+  border: none;
+  background-color: rgb(92, 92, 212);
+  color: beige;
+  &:hover {
+    background-color: beige;
+    color: rgb(92, 92, 212);
+  }
+`;
