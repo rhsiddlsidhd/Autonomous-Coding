@@ -1,3 +1,5 @@
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
 
 const ProductInfo = () => {
@@ -8,7 +10,7 @@ const ProductInfo = () => {
           <span>POLO</span>
           <button>♡</button>
           <span>
-            브랜드관 <i class="fa-solid fa-chevron-right"></i>
+            <FontAwesomeIcon icon={faChevronRight} />
           </span>
         </BrandLogoContainer>
         <ProductName>

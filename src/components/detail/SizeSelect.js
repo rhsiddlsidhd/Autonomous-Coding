@@ -6,7 +6,7 @@ const SizeSelect = () => {
       <ProductSize>
         <span>사이즈</span>
         <ProductSizeSelector>
-          <label for="size"></label>
+          <label htmlFor="size"></label>
           <ProductSizeSelectorBar id="size" name="size">
             <option value="size">사이즈</option>
             <option value="small">Small</option>

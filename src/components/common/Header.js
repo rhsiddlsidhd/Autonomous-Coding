@@ -1,4 +1,10 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartShopping,
+  faMagnifyingGlass,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [brandView, setBrandView] = useState(false);
@@ -128,15 +134,15 @@ const Header = () => {
         <div className="header_right">
           <div className="header_right-icon-wrap">
             <h2>
-              <i class="fa-solid fa-user"></i>
+              <FontAwesomeIcon icon={faUser} />
             </h2>
             <h2>
-              <i class="fa-solid fa-cart-shopping"></i>
+              <FontAwesomeIcon icon={faCartShopping} />
             </h2>
           </div>
           <div className="header_right-search">
             <input type="text" placeholder="##24시간이 모자라" />
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
           </div>
         </div>
       </div>

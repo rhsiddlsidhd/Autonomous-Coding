@@ -5,11 +5,11 @@ import ProductReviewSale from "./ProductReviewSale";
 import SizeSelect from "./SizeSelect";
 import TotalPaymentAmount from "./TotalPaymentAmount";
 
-const ProductDetailSection = () => {
+const ProductDetailSection = ({ data }) => {
   return (
     <>
       <ProductImgContainer>
-        <ProductImage />
+        <ProductImage data={data} />
       </ProductImgContainer>
       <ProductDescription>
         <ProductInfo />
