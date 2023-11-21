@@ -9,7 +9,7 @@ import { styled } from "styled-components";
 const ProductImage = ({ data }) => {
   // console.log("여기", data.Imgs);
 
-  const imgList = data.Imgs;
+  const imgList = data.Imgs || []; // 항상 예외처리
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -18,12 +18,14 @@ const ProductImage = ({ data }) => {
       prevIndex === 0 ? imgList.length - 1 : prevIndex - 1
     );
   };
+  // 현재 인덱스가 0 이라면 마지막 index 선택 (=imgList.length - 1) 그렇지 않고 index가 1이나 2라면 -1해줘
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === imgList.length - 1 ? 0 : prevIndex + 1
     );
   };
+  // 현재 인덱스가 마지막 이라면 처음 index 선택 (=0) 그렇지 않고 index가 0이나 1라면 +1해줘
 
   return (
     <>
