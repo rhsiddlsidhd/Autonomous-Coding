@@ -15,6 +15,7 @@ const Detail = () => {
     Name: "베어 자수 케일리 스커프 털 슬리퍼",
     Code: "RFS11478W",
     Price: 129000,
+    Percentage: 30,
     Size: [220, 225, 230, 235, 240, 245, 250],
     Imgs: [
       process.env.PUBLIC_URL + `/Images/shoes1.jpg`,
@@ -22,6 +23,9 @@ const Detail = () => {
       process.env.PUBLIC_URL + `/Images/shoes3.jpg`,
     ],
   };
+
+  //check
+  // console.log("여기요", isNaN(product.sale));
 
   useEffect(() => {
     setData(product);
