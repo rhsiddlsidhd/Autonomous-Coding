@@ -3,19 +3,19 @@ import { styled } from "styled-components";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ReviewModal = ({ onClose }) => {
+const ReviewModal = ({ onClose, addIssue }) => {
   const [issue, setIssue] = useState({
     name: "",
-    grade: null,
+    grade: 0,
     message: "",
   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(issue);
-    onClose();
+    // console.log(issue);
+    addIssue(issue);
 
     window.alert("작성이 완료되었습니다. 감사합니다.");
+    onClose();
   };
 
   //별점 점수 데이터

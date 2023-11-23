@@ -1,6 +1,6 @@
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import Modal from "react-modal";
 import ReviewModal from "./ReviewModal";
@@ -10,6 +10,8 @@ Modal.setAppElement("#root");
 
 const ReviewTab = () => {
   const [isopen, setIsopen] = useState(false);
+  const [issues, setIssues] = useState([]);
+  const [averageGrade, setAverageGrade] = useState(0);
 
   const handleModalOpen = () => {
     setIsopen(true);
@@ -18,6 +20,18 @@ const ReviewTab = () => {
   const handleModalClose = () => {
     setIsopen(false);
   };
+
+  const addIssue = (newIssue) => {
+    setIssues((prevIssues) => [...prevIssues, newIssue]);
+  };
+
+  useEffect(() => {
+    const grades = issues.map((it) => it.grade);
+    const sum = grades.reduce((acc, grade) => acc + grade, 0);
+    const average = issues.length > 0 ? sum / issues.length : 0;
+
+    setAverageGrade(average);
+  }, [issues]);
 
   return (
     <ReviewContainer>
@@ -30,7 +44,7 @@ const ReviewTab = () => {
           <div className="leftColumn">
             <div>
               <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
-              <span>4.9</span>
+              <span>{averageGrade.toFixed(1)}</span>
             </div>
             <button onClick={handleModalOpen}>상품 리뷰 작성하기</button>
             {/* 상품리뷰 작성하기를 모달창으로 띄워보자 */}
@@ -42,10 +56,10 @@ const ReviewTab = () => {
               // 모달창영역 벗어나 클릭시 나가기 버튼 막아주는것
               shouldCloseOnOverlayClick={false}
             >
-              <ReviewModal onClose={handleModalClose} />
+              <ReviewModal onClose={handleModalClose} addIssue={addIssue} />
             </Modal>
           </div>
-          <div>그래프</div>
+          <div className="rightColumn">그래프</div>
         </ReviewRatingItem>
       </ReviewRating>
     </ReviewContainer>
