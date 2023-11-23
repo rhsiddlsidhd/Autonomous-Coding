@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ReviewModal = ({ isopen, onClose }) => {
   const [issue, setIssue] = useState({
@@ -14,7 +16,35 @@ const ReviewModal = ({ isopen, onClose }) => {
   };
 
   const [rating, setRating] = useState([false, false, false, false, false]);
+  const ARRAY = [0, 1, 2, 3, 4];
 
+  const handleStarClick = (index) => {
+    // _ : 여러 의미 사용 중에서 미사용 매개변수를 뜻함 (관례)
+    setRating((prev) => prev.map((_, i) => (i <= index ? true : false)));
+  };
+  // console.log(rating);
+
+  // 각 점수에 대한 텍스트 배열
+  const ratingTexts = [
+    "1점 (별로예요)",
+    "2점 (그저그래요)",
+    "3점 (괜찮아요)",
+    "4점 (좋아요)",
+    "5점 (최고예요)",
+  ];
+  // console 배열 값 가져오기
+  // console.log(ratingTexts[0]);
+
+  // 각 점수에 대한 스타일
+  const ratingStyles = {
+    1: { color: "red", fontSize: "20px" },
+    2: { color: "red", fontSize: "20px" },
+    3: { color: "gold", fontSize: "20px" },
+    4: { color: "green", fontSize: "20px" },
+    5: { color: "blue", fontSize: "20px" },
+  };
+  //console 객체 값 가져오기
+  // console.log(ratingStyles[1]);
   return (
     <>
       <Custom>
@@ -34,16 +64,25 @@ const ReviewModal = ({ isopen, onClose }) => {
           </div>
           <div className="usergrade">
             <h3>상품은 만족하셨나요?</h3>
-            <label htmlFor="grade">
-              <input type="checkbox" id="grade1"></input>
-              <input type="checkbox" id="grade2"></input>
-              <input type="checkbox" id="grade3"></input>
-              <input type="checkbox" id="grade4"></input>
-              <input type="checkbox" id="grade5"></input>
-            </label>
+            <Stars>
+              {ARRAY.map((item, idx) => (
+                <FontAwesomeIcon
+                  icon={faStar}
+                  key={idx}
+                  onClick={() => handleStarClick(item)}
+                  className={rating[item] ? "yellowStar" : ""}
+                />
+              ))}
+            </Stars>
+            <p
+              className={rating.includes(true) ? "visible" : "hidden"}
+              style={ratingStyles[rating.lastIndexOf(true) + 1]}
+            >
+              {ratingTexts[rating.lastIndexOf(true)]}
+            </p>
           </div>
           <div className="userfeedback">
-            <h3>어떤 점이 좋았나요?</h3>
+            <h3>후기를 남겨주세요.</h3>
             <label htmlFor="feedback">
               <textarea
                 id="feedback"
@@ -92,7 +131,6 @@ const Custom = styled.div`
       }
     }
     & .usergrade {
-      /* margin: 50px 0; */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -105,6 +143,12 @@ const Custom = styled.div`
       & label > input {
         width: 30px;
         height: 30px;
+      }
+      & .visible {
+        visibility: visible;
+      }
+      & .hidden {
+        visibility: hidden;
       }
     }
     & .userfeedback {
@@ -144,5 +188,14 @@ const ModalButton = styled.div`
       color: white;
       cursor: pointer;
     }
+  }
+`;
+
+const Stars = styled.div`
+  display: flex;
+  padding-top: 5px;
+
+  .yellowStar {
+    color: gold;
   }
 `;
