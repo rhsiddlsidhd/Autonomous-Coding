@@ -3,28 +3,33 @@ import { styled } from "styled-components";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ReviewModal = ({ isopen, onClose }) => {
+const ReviewModal = ({ onClose }) => {
   const [issue, setIssue] = useState({
     name: "",
-    grade: "",
+    grade: null,
     message: "",
   });
 
-  const hSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(issue);
     onClose();
+
+    window.alert("작성이 완료되었습니다. 감사합니다.");
   };
 
+  //별점 점수 데이터
   const [rating, setRating] = useState([false, false, false, false, false]);
   const ARRAY = [0, 1, 2, 3, 4];
 
   const handleStarClick = (index) => {
     // _ : 여러 의미 사용 중에서 미사용 매개변수를 뜻함 (관례)
     setRating((prev) => prev.map((_, i) => (i <= index ? true : false)));
+    setIssue((prev) => ({ ...prev, grade: index + 1 }));
   };
   // console.log(rating);
 
-  // 각 점수에 대한 텍스트 배열
+  // 별점 점수에 대한 텍스트 배열
   const ratingTexts = [
     "1점 (별로예요)",
     "2점 (그저그래요)",
@@ -35,7 +40,7 @@ const ReviewModal = ({ isopen, onClose }) => {
   // console 배열 값 가져오기
   // console.log(ratingTexts[0]);
 
-  // 각 점수에 대한 스타일
+  // 별점 점수에 대한 스타일
   const ratingStyles = {
     1: { color: "red", fontSize: "20px" },
     2: { color: "red", fontSize: "20px" },
@@ -45,22 +50,27 @@ const ReviewModal = ({ isopen, onClose }) => {
   };
   //console 객체 값 가져오기
   // console.log(ratingStyles[1]);
+
+  const selectedRating = rating.lastIndexOf(true);
+  const selectedText = ratingTexts[selectedRating];
+
   return (
     <>
       <Custom>
         <h2 style={{ marginBottom: "10px" }}>리뷰쓰기</h2>
-        <form onSubmit={hSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="username">
             <h3>성명</h3>
-            <label htmlFor="name"></label>
-            <input
-              type="text"
-              id="name"
-              value={issue.name}
-              onChange={(e) =>
-                setIssue((prev) => ({ ...prev, name: e.target.value }))
-              }
-            ></input>
+            <label htmlFor="name">
+              <input
+                type="text"
+                id="name"
+                value={issue.name}
+                onChange={(e) =>
+                  setIssue((prev) => ({ ...prev, name: e.target.value }))
+                }
+              />
+            </label>
           </div>
           <div className="usergrade">
             <h3>상품은 만족하셨나요?</h3>
@@ -76,9 +86,9 @@ const ReviewModal = ({ isopen, onClose }) => {
             </Stars>
             <p
               className={rating.includes(true) ? "visible" : "hidden"}
-              style={ratingStyles[rating.lastIndexOf(true) + 1]}
+              style={ratingStyles[selectedRating + 1]}
             >
-              {ratingTexts[rating.lastIndexOf(true)]}
+              {selectedText}
             </p>
           </div>
           <div className="userfeedback">
@@ -111,7 +121,7 @@ const Custom = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  & form {
+  form {
     width: 80%;
     height: 100%;
     border-top: 1px solid #bfbfbf;
@@ -119,39 +129,39 @@ const Custom = styled.div`
     flex-direction: column;
     align-items: center;
 
-    & .username {
+    .username {
       display: flex;
       width: 100%;
       height: 15%;
       flex-direction: column;
       justify-content: center;
       border-bottom: 1px solid #bfbfbf;
-      & input {
+      input {
         width: 30%;
       }
     }
-    & .usergrade {
+    .usergrade {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 80%;
       height: 20%;
-      & h3 {
+      h3 {
         margin: 10px 0;
       }
-      & label > input {
+      label > input {
         width: 30px;
         height: 30px;
       }
-      & .visible {
+      .visible {
         visibility: visible;
       }
-      & .hidden {
+      .hidden {
         visibility: hidden;
       }
     }
-    & .userfeedback {
+    .userfeedback {
       border-top: 1px solid #bfbfbf;
       width: 100%;
       height: 50%;
@@ -159,13 +169,13 @@ const Custom = styled.div`
       flex-direction: column;
       align-items: center;
 
-      & h3 {
+      h3 {
         margin: 10px 0;
       }
-      & label {
+      label {
         width: 100%;
         height: 250px;
-        & textarea {
+        textarea {
           width: 100%;
           height: 100%;
         }
@@ -180,7 +190,7 @@ const ModalButton = styled.div`
   height: 15%;
   align-items: center;
   justify-content: space-between;
-  & button {
+  button {
     width: 80px;
     height: 30px;
     &:hover {
@@ -192,9 +202,6 @@ const ModalButton = styled.div`
 `;
 
 const Stars = styled.div`
-  display: flex;
-  padding-top: 5px;
-
   .yellowStar {
     color: gold;
   }

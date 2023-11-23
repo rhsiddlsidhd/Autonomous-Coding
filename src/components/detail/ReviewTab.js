@@ -34,11 +34,13 @@ const ReviewTab = () => {
             </div>
             <button onClick={handleModalOpen}>상품 리뷰 작성하기</button>
             {/* 상품리뷰 작성하기를 모달창으로 띄워보자 */}
-            {/* isopen ,onRequestClose Modal 사용법  */}
+            {/* isopen ,onRequestClose,shouldCloseOnOverlayClick Modal 사용법  */}
             <Modal
               isOpen={isopen}
               onRequestClose={handleModalClose}
               style={customStyles}
+              // 모달창영역 벗어나 클릭시 나가기 버튼 막아주는것
+              shouldCloseOnOverlayClick={false}
             >
               <ReviewModal onClose={handleModalClose} />
             </Modal>
@@ -112,7 +114,7 @@ const ReviewRatingItem = styled.div`
 // 스타일 객체 정의 (= Modal style={customStyles} 적용)
 const customStyles = {
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
   },
   content: {
     width: "40%",
