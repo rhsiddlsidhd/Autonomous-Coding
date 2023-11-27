@@ -79,12 +79,17 @@
   margin-bottom: 16px;
 }
 
-.header_right-icon-wrap h2 .fa-user {
-  margin-right: 10px;
+.header_right-icon-wrap div h2 .faUser {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.header_right-icon-wrap div h2 .faRightFromBracket {
+  margin-right: 16px;
   cursor: pointer;
 }
 .header_right-icon-wrap h2 .fa-cart-shopping {
-  margin-left: 10px;
+  margin-left: 16px;
   cursor: pointer;
 }
 

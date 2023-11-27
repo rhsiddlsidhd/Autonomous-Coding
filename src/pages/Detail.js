@@ -3,10 +3,44 @@ import ProductDetailSection from "../components/detail/ProductDetailSection";
 import { useState, useEffect } from "react";
 import InformationNoticeTable from "../components/detail/InformationNoticeTable";
 import ReviewTab from "../components/detail/ReviewTab";
+// import { database } from "../firebase";
+import { db } from "../firebase";
+import { ref, set } from "firebase/database";
+import { addDoc, collection } from "firebase/firestore";
+
 const Detail = () => {
   const [data, setData] = useState([]);
   const [view, setView] = useState("information");
 
+  // firebase
+  useEffect(() => {
+    // 데이터를 Firestore에 추가하는 함수
+    const addDataToFirestore = async () => {
+      try {
+        // 'products'는 Firestore에 생성한 컬렉션의 이름입니다.
+        const docRef = await addDoc(collection(db, "fawkwf"), {
+          // 여기에 저장할 데이터를 추가합니다.
+          name: "베어 자수 케일리 스커프 털 슬리퍼",
+          code: "RFS11478W",
+          price: 129000,
+          percentage: 30,
+          size: [220, 225, 230, 235, 240, 245, 250],
+          imgs: [
+            process.env.PUBLIC_URL + `/Images/shoes1.jpg`,
+            process.env.PUBLIC_URL + `/Images/shoes2.jpg`,
+            process.env.PUBLIC_URL + `/Images/shoes3.jpg`,
+          ],
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
+    };
+
+    // 함수 호출
+    addDataToFirestore();
+  }, []); // []를 사용하여 한 번만 실행되도록 설정
+  // ======================================================
   const handleTabClick = (tab) => {
     setView(tab);
   };

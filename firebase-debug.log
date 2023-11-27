@@ -1,0 +1,45 @@
+[debug] [2023-11-23T13:31:49.448Z] ----------------------------------------------------------------------
+[debug] [2023-11-23T13:31:49.451Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\rhsid_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2023-11-23T13:31:49.451Z] CLI Version:   12.9.1
+[debug] [2023-11-23T13:31:49.452Z] Platform:      win32
+[debug] [2023-11-23T13:31:49.452Z] Node Version:  v18.18.0
+[debug] [2023-11-23T13:31:49.454Z] Time:          Thu Nov 23 2023 22:31:49 GMT+0900 (대한민국 표준시)
+[debug] [2023-11-23T13:31:49.455Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-23T13:31:49.603Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-23T13:31:49.604Z] > authorizing via signed-in user (rhsiddlsidhd1@gmail.com)
+[debug] [2023-11-23T13:31:49.604Z] [iam] checking project shoeswebtest for permissions ["firebase.projects.get"]
+[debug] [2023-11-23T13:31:49.606Z] > refreshing access token with scopes: []
+[debug] [2023-11-23T13:31:49.608Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-11-23T13:31:49.608Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-23T13:31:49.893Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-11-23T13:31:49.893Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-23T13:31:49.912Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/shoeswebtest:testIamPermissions [none]
+[debug] [2023-11-23T13:31:49.913Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/shoeswebtest:testIamPermissions x-goog-quota-user=projects/shoeswebtest
+[debug] [2023-11-23T13:31:49.913Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/shoeswebtest:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-11-23T13:31:50.730Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/shoeswebtest:testIamPermissions 200
+[debug] [2023-11-23T13:31:50.731Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/shoeswebtest:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-11-23T13:31:50.733Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest [none]
+[debug] [2023-11-23T13:31:51.248Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest 200
+[debug] [2023-11-23T13:31:51.249Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest {"projectId":"shoeswebtest","projectNumber":"736298464790","displayName":"ShoesWebTest","name":"projects/shoeswebtest","resources":{"hostingSite":"shoeswebtest","storageBucket":"shoeswebtest.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_dae70c0b-f15e-4231-b9d0-3892daa7bbf6"}
+[info] 
+[info] === Serving from 'C:\Users\rhsid_\Desktop\F_Autonomous Coding'...
+[info] 
+[debug] [2023-11-23T13:31:51.265Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/shoeswebtest/sites 
+[debug] [2023-11-23T13:31:52.371Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/shoeswebtest/sites 200
+[debug] [2023-11-23T13:31:52.371Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/shoeswebtest/sites {"sites":[{"name":"projects/shoeswebtest/sites/shoeswebtest","defaultUrl":"https://shoeswebtest.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-11-23T13:31:52.373Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest/webApps/-/config [none]
+[debug] [2023-11-23T13:31:53.375Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest/webApps/-/config 200
+[debug] [2023-11-23T13:31:53.375Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest/webApps/-/config {"projectId":"shoeswebtest","appId":"1:736298464790:web:d1c9a27b5fe48a5967a737","storageBucket":"shoeswebtest.appspot.com","locationId":"asia-northeast3","apiKey":"AIzaSyB10cmONG_ayLNEIr7QUn6UIPmRXShVLt8","authDomain":"shoeswebtest.firebaseapp.com","messagingSenderId":"736298464790","measurementId":"G-D5QJNBVR16"}
+[debug] [2023-11-23T13:31:53.386Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest [none]
+[debug] [2023-11-23T13:31:53.906Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest 200
+[debug] [2023-11-23T13:31:53.906Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shoeswebtest {"projectId":"shoeswebtest","projectNumber":"736298464790","displayName":"ShoesWebTest","name":"projects/shoeswebtest","resources":{"hostingSite":"shoeswebtest","storageBucket":"shoeswebtest.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_dae70c0b-f15e-4231-b9d0-3892daa7bbf6"}
+[info] i  hosting[shoeswebtest]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[shoeswebtest]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:38 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:38 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:38 +0000] "GET /%PUBLIC_URL%/manifest.json HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:38 +0000] \"GET /%PUBLIC_URL%/manifest.json HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:38 +0000] "GET /%PUBLIC_URL%/favicon.ico HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:38 +0000] \"GET /%PUBLIC_URL%/favicon.ico HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:41 +0000] "GET /%PUBLIC_URL%/manifest.json HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:41 +0000] \"GET /%PUBLIC_URL%/manifest.json HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:45 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:45 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:45 +0000] "GET /%PUBLIC_URL%/manifest.json HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:45 +0000] \"GET /%PUBLIC_URL%/manifest.json HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [23/Nov/2023:13:37:45 +0000] "GET /%PUBLIC_URL%/favicon.ico HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [23/Nov/2023:13:37:45 +0000] \"GET /%PUBLIC_URL%/favicon.ico HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36\""}}
