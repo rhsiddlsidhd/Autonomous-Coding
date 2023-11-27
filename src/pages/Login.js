@@ -5,27 +5,27 @@ import {
 import { styled } from "styled-components";
 import { auth } from "../firebase";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   //회원가입
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navagate = useNavigate();
 
   const registerUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // User signed in
         const user = userCredential.user;
-        console.log("User registered:", user.uid);
-        // You can perform additional actions here if needed
+        console.log(user.uid);
+        alert("가입되었습니다");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(
-          `Registration failed with error code ${errorCode}: ${errorMessage}`
-        );
-        // Handle specific error cases if needed
+        console.error(`${errorCode} : ${errorMessage}`);
       });
   };
 
@@ -35,16 +35,15 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("User logged in:", user.uid);
+        handleLogin();
+        localStorage.setItem("userToken", user.accessToken);
+        navagate("/detail");
         alert("로그인되었습니다");
-        // You can perform additional actions here if needed
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(
-          `Login failed with error code ${errorCode}: ${errorMessage}`
-        );
+        console.error(`로그인실패 ${errorCode}: ${errorMessage}`);
         alert("실패하였습니다");
       });
   };
