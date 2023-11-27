@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import Modal from "react-modal";
 import ReviewModal from "./ReviewModal";
 import fetchUserReviewsRatings from "../utils/fetchUserReviewsRatings";
+import RightColumnGraph from "./RightColumnGraph";
 
 // Modal react-modal doc
 Modal.setAppElement("#root");
@@ -64,7 +65,7 @@ const ReviewTab = () => {
               />
             </Modal>
           </div>
-          <div className="rightColumn">그래프</div>
+          <RightColumnGraph />
         </ReviewRatingItem>
       </ReviewRating>
     </ReviewContainer>
@@ -100,11 +101,10 @@ const ReviewRatingNav = styled.div`
 const ReviewRatingItem = styled.div`
   width: 100%;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  border: 1px solid red;
   height: 15rem;
   & .leftColumn {
-    /* background-color: red; */
     width: 35%;
     height: 80%;
     border-right: 1px solid #edf1f6;
