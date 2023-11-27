@@ -7,11 +7,10 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { styled } from "styled-components";
-import { auth } from "../../firebase";
-import { signOut } from "firebase/auth";
+
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ isLogin, handleLogin }) => {
+const Header = ({ isLogin, loginout }) => {
   const [brandView, setBrandView] = useState(false);
   const [shoesView, setShoesView] = useState(false);
   const [kidsView, setKidsView] = useState(false);
@@ -32,25 +31,6 @@ const Header = ({ isLogin, handleLogin }) => {
 
   const loginIconToggledView = () => {
     setLoginIconView(!loginIconView);
-  };
-
-  //로그아웃
-
-  const loginout = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        console.log("로그아웃");
-        localStorage.removeItem("userToken");
-        alert("로그아웃되었습니다");
-        handleLogin();
-        //로그아웃후 이동
-        navigate("/login");
-      })
-      .catch((error) => {
-        // An error happened.
-        console.error("로그아웃실패", error);
-      });
   };
 
   return (
