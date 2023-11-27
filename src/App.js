@@ -15,7 +15,7 @@ function App() {
     return setIsLogin(!isLogin);
   };
 
-  console.log(isLogin);
+  // console.log(isLogin);
 
   useEffect(() => {
     const userToken = sessionStorage.getItem("userToken");
