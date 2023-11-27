@@ -1,16 +1,17 @@
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { styled } from "styled-components";
 import Modal from "react-modal";
 import ReviewModal from "./ReviewModal";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
 
 // Modal react-modal doc
 Modal.setAppElement("#root");
 
 const ReviewTab = () => {
   const [isopen, setIsopen] = useState(false);
-  const [issues, setIssues] = useState([]);
   const [averageGrade, setAverageGrade] = useState(0);
 
   const handleModalOpen = () => {
@@ -21,17 +22,31 @@ const ReviewTab = () => {
     setIsopen(false);
   };
 
-  const addIssue = (newIssue) => {
-    setIssues((prevIssues) => [...prevIssues, newIssue]);
+  //firebase 데이터 Read
+  const fetchUserReviewsRatings = async () => {
+    try {
+      const userReviewsCollection = collection(db, "userReviews");
+      const querySnapshot = await getDocs(userReviewsCollection);
+
+      const ratings = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const rating = data.grade;
+
+        // 별점이 있는 경우에만 배열에 추가
+        if (rating) {
+          ratings.push(rating);
+        }
+      });
+      const sum =
+        ratings.length > 0 ? ratings.reduce((acc, grade) => acc + grade, 0) : 0;
+      const average = ratings.length > 0 ? sum / ratings.length : 0;
+      return average;
+    } catch (error) {
+      console.error("Error fetching user reviews: ", error);
+      return [];
+    }
   };
-
-  useEffect(() => {
-    const grades = issues.map((it) => it.grade);
-    const sum = grades.reduce((acc, grade) => acc + grade, 0);
-    const average = issues.length > 0 ? sum / issues.length : 0;
-
-    setAverageGrade(average);
-  }, [issues]);
 
   return (
     <ReviewContainer>
@@ -56,7 +71,11 @@ const ReviewTab = () => {
               // 모달창영역 벗어나 클릭시 나가기 버튼 막아주는것
               shouldCloseOnOverlayClick={false}
             >
-              <ReviewModal onClose={handleModalClose} addIssue={addIssue} />
+              <ReviewModal
+                onClose={handleModalClose}
+                fetchUserReviewsRatings={fetchUserReviewsRatings}
+                setAverageGrade={setAverageGrade}
+              />
             </Modal>
           </div>
           <div className="rightColumn">그래프</div>
