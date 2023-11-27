@@ -36,7 +36,7 @@ const Login = ({ handleLogin }) => {
         // Signed in
         const user = userCredential.user;
         handleLogin();
-        localStorage.setItem("userToken", user.accessToken);
+        sessionStorage.setItem("userToken", user.accessToken);
         navagate("/detail");
         alert("로그인되었습니다");
       })
