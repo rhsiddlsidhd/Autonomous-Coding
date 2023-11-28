@@ -5,6 +5,7 @@ import { db } from "../../firebase";
 
 const fetchUserReviewsRatings = async () => {
   try {
+    //firebase에서 데이터 가져오기
     const userReviewsCollection = collection(db, "userReviews");
     const querySnapshot = await getDocs(userReviewsCollection);
 

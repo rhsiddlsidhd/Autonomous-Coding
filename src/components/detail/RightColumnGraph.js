@@ -1,43 +1,63 @@
 import { styled } from "styled-components";
 
-const RightColumnGraph = () => {
+const RightColumnGraph = ({ graphData, reviewPopulationCount }) => {
+  if (!graphData || graphData.length === 0) {
+    // 만약 graphData가 없는 경우 기본 UI 또는 메시지를 렌더링
+    return <div>No data available.</div>;
+  }
+
   return (
     <>
       <RightColumn>
         <ProgressBarItems>
           <span>아주 좋아요</span>
           <div className="progressBar">
-            <div className="progress"></div>
+            <div
+              className="progress"
+              style={{ width: `${graphData.veryGood}%` }}
+            ></div>
           </div>
-          <span>몇명</span>
+          <span>{reviewPopulationCount.veryGood}</span>
         </ProgressBarItems>
         <ProgressBarItems>
           <span>맘에 들어요</span>
           <div className="progressBar">
-            <div className="progress"></div>
+            <div
+              className="progress"
+              style={{ width: `${graphData.like}%` }}
+            ></div>
           </div>
-          <span>몇명</span>
+          <span>{reviewPopulationCount.like}</span>
         </ProgressBarItems>
         <ProgressBarItems>
           <span>보통이에요</span>
           <div className="progressBar">
-            <div className="progress"></div>
+            <div
+              className="progress"
+              style={{ width: `${graphData.average}%` }}
+            ></div>
           </div>
-          <span>몇명</span>
+          <span>{reviewPopulationCount.average}</span>
         </ProgressBarItems>
         <ProgressBarItems>
           <span>그저 그래요</span>
           <div className="progressBar">
-            <div className="progress"></div>
+            <div
+              className="progress"
+              style={{ width: `${graphData.soSo}%` }}
+            ></div>
           </div>
-          <span>몇명</span>
+          <span>{reviewPopulationCount.soSo}</span>
         </ProgressBarItems>
         <ProgressBarItems>
           <span>별로에요</span>
           <div className="progressBar">
-            <div className="progress"></div>
+            <div
+              className="progress"
+              style={{ width: `${graphData.notGood}%` }}
+            ></div>
           </div>
-          <span>몇명</span>
+          <span>{reviewPopulationCount.notGood}</span>
         </ProgressBarItems>
       </RightColumn>
     </>
@@ -62,24 +82,24 @@ const ProgressBarItems = styled.div`
     display: flex;
     justify-content: end;
     width: 20%;
+    margin-right: 10px;
   }
 
   & .progressBar {
     width: 70%;
     height: 100%;
-    background-color: gray;
+    background-color: #ebeff5;
     border-radius: 10px;
     & .progress {
-      width: 72%; // 나타내고자 하는 퍼센트 값을 넣으면 됩니다.
       height: 100%;
       padding: 0;
       text-align: center;
-      background-color: #4f98ff;
+      background-color: #14161a;
       border-radius: 10px;
-      color: #111;
     }
   }
   & span:last-child {
     width: 10%;
+    margin-left: 10px;
   }
 `;
