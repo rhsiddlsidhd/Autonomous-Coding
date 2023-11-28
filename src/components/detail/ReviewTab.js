@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import Modal from "react-modal";
 import ReviewModal from "./ReviewModal";
-import fetchUserReviewsRatings from "../utils/fetchUserReviewsRatings";
+import fetchUserReviewsRatings from "../../utils/fetchUserReviewsRatings";
 import RightColumnGraph from "./RightColumnGraph";
-import fetchUserReviewsGraph from "../utils/fetchUserReviewsGraph";
+import fetchUserReviewsGraph from "../../utils/fetchUserReviewsGraph";
 
 // Modal react-modal doc
 Modal.setAppElement("#root");
@@ -14,9 +14,6 @@ Modal.setAppElement("#root");
 const ReviewTab = () => {
   const [isopen, setIsopen] = useState(false);
   const [averageGrade, setAverageGrade] = useState(0);
-
-  // 그래프 그리기
-  // 0. 상태값 선언
   const [graphData, setGraphData] = useState({
     veryGood: 0,
     like: 0,
@@ -24,18 +21,23 @@ const ReviewTab = () => {
     soSo: 0,
     notGood: 0,
   });
-  // 1. firestore 데이터부터 가져오기 (컴포넌트 분리)
+  const [reviewPopulationCount, setReviewPopulationCount] = useState({
+    veryGood: 0,
+    like: 0,
+    average: 0,
+    soSo: 0,
+    notGood: 0,
+  });
+  const [reviewCount, setReviewCount] = useState(0);
 
-  //
   const handleModalOpen = () => {
     setIsopen(true);
   };
-
   const handleModalClose = () => {
     setIsopen(false);
   };
 
-  //새로고침시 사라지는 현상 발생 해결
+  //평균 등급 데이터 가져오기(새로고침시 사라지는 현상 발생 해결)
   useEffect(() => {
     const initializeAverageGrade = async () => {
       try {
@@ -49,7 +51,7 @@ const ReviewTab = () => {
     initializeAverageGrade();
   }, []);
 
-  //처음 렌더링 시
+  //그래프 데이터 value 값 가져오기
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -85,13 +87,6 @@ const ReviewTab = () => {
   };
 
   // 리뷰 카운트
-  const [reviewPopulationCount, setReviewPopulationCount] = useState({
-    veryGood: 0,
-    like: 0,
-    average: 0,
-    soSo: 0,
-    notGood: 0,
-  });
 
   useEffect(() => {
     const fetchPopulationCount = async () => {
@@ -118,7 +113,6 @@ const ReviewTab = () => {
   };
 
   //Review 개수 가져오기
-  const [reviewCount, setReviewCount] = useState(0);
 
   useEffect(() => {
     const fetchReviewCount = async () => {

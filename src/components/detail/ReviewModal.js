@@ -2,7 +2,7 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import submitReview from "../utils/submitReview";
+import submitReview from "../../utils/submitReview";
 
 const ReviewModal = ({
   onClose,
