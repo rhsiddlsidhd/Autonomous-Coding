@@ -4,7 +4,15 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import submitReview from "../utils/submitReview";
 
-const ReviewModal = ({ onClose, setAverageGrade }) => {
+const ReviewModal = ({
+  onClose,
+  setAverageGrade,
+  setGraphData,
+  calculateProgressValues,
+  setReviewCount,
+  calculatePopulationValues,
+  setReviewPopulationCount,
+}) => {
   const [issue, setIssue] = useState({
     name: "",
     grade: 0,
@@ -14,7 +22,16 @@ const ReviewModal = ({ onClose, setAverageGrade }) => {
   // 전송 버튼 클릭시 해당 issue 데이터를 firebase 로 데이터 전송
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitReview(issue, setAverageGrade, onClose);
+    submitReview(
+      issue,
+      setAverageGrade,
+      onClose,
+      setGraphData,
+      calculateProgressValues,
+      setReviewCount,
+      calculatePopulationValues,
+      setReviewPopulationCount
+    );
   };
 
   //별점 점수 데이터
