@@ -1,5 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import fetchUserReviewsRatings from "./fetchUserReviewsRatings";
 import fetchUserReviewsGraph from "./fetchUserReviewsGraph";
 

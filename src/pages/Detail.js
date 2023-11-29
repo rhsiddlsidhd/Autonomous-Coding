@@ -127,7 +127,7 @@ const ProductDetailTab = styled.div`
   flex-direction: column;
   align-items: center;
   /* background-color: gray; */
-  & ul {
+  & > ul {
     margin-top: 60px;
     width: 80%;
     height: 60px;
@@ -136,7 +136,7 @@ const ProductDetailTab = styled.div`
     align-items: center;
 
     border-bottom: 1px solid #e1e1e1;
-    & li {
+    & > li {
       display: flex;
       width: 100%;
       justify-content: center;

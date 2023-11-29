@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 
 //firestore 에서 별점 Read 및 평균 값 계산
 

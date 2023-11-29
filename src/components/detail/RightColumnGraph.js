@@ -1,66 +1,47 @@
 import { styled } from "styled-components";
 
+const ProgressBar = ({ label, value, populationCount, style }) => (
+  <ProgressBarItems style={style}>
+    <span>{label}</span>
+    <div className="progressBar">
+      <div className="progress" style={{ width: `${value}%` }}></div>
+    </div>
+    <span>{populationCount}</span>
+  </ProgressBarItems>
+);
+
 const RightColumnGraph = ({ graphData, reviewPopulationCount }) => {
-  if (!graphData || graphData.length === 0) {
-    // 만약 graphData가 없는 경우 기본 UI 또는 메시지를 렌더링
-    return <div>No data available.</div>;
-  }
+  //graphData의 객체에서 가장 큰 데이터 가져오기 (Objuct.keys(obj) 메서드)
+  const maxGrade = Object.keys(graphData).reduce((a, b) =>
+    graphData[a] > graphData[b] ? a : b
+  );
 
   return (
-    <>
-      <RightColumn>
-        <ProgressBarItems>
-          <span>아주 좋아요</span>
-          <div className="progressBar">
-            <div
-              className="progress"
-              style={{ width: `${graphData.veryGood}%` }}
-            ></div>
-          </div>
-          <span>{reviewPopulationCount.veryGood}</span>
-        </ProgressBarItems>
-        <ProgressBarItems>
-          <span>맘에 들어요</span>
-          <div className="progressBar">
-            <div
-              className="progress"
-              style={{ width: `${graphData.like}%` }}
-            ></div>
-          </div>
-          <span>{reviewPopulationCount.like}</span>
-        </ProgressBarItems>
-        <ProgressBarItems>
-          <span>보통이에요</span>
-          <div className="progressBar">
-            <div
-              className="progress"
-              style={{ width: `${graphData.average}%` }}
-            ></div>
-          </div>
-          <span>{reviewPopulationCount.average}</span>
-        </ProgressBarItems>
-        <ProgressBarItems>
-          <span>그저 그래요</span>
-          <div className="progressBar">
-            <div
-              className="progress"
-              style={{ width: `${graphData.soSo}%` }}
-            ></div>
-          </div>
-          <span>{reviewPopulationCount.soSo}</span>
-        </ProgressBarItems>
-        <ProgressBarItems>
-          <span>별로에요</span>
-          <div className="progressBar">
-            <div
-              className="progress"
-              style={{ width: `${graphData.notGood}%` }}
-            ></div>
-          </div>
-          <span>{reviewPopulationCount.notGood}</span>
-        </ProgressBarItems>
-      </RightColumn>
-    </>
+    <RightColumn>
+      {Object.keys(graphData).map((key) => {
+        const labels = {
+          veryGood: "아주 좋아요",
+          like: "맘에 들어요",
+          average: "보통이에요",
+          soSo: "그저 그래요",
+          notGood: "별로에요",
+        };
+        const label = labels[key];
+
+        return (
+          <ProgressBar
+            key={key}
+            label={label}
+            value={graphData[key]}
+            populationCount={reviewPopulationCount[key]}
+            style={{
+              fontWeight: key === maxGrade ? "bold" : "normal",
+              color: key === maxGrade ? "black" : "#A4A7AE",
+            }}
+          />
+        );
+      })}
+    </RightColumn>
   );
 };
 
@@ -78,16 +59,19 @@ const RightColumn = styled.div`
 const ProgressBarItems = styled.div`
   display: flex;
   width: 100%;
+  align-items: center;
+
   & span:first-child {
     display: flex;
     justify-content: end;
     width: 20%;
+    font-size: 12px;
     margin-right: 10px;
   }
 
   & .progressBar {
     width: 70%;
-    height: 100%;
+    height: 50%;
     background-color: #ebeff5;
     border-radius: 10px;
     & .progress {
@@ -100,6 +84,7 @@ const ProgressBarItems = styled.div`
   }
   & span:last-child {
     width: 10%;
+    font-size: 12px;
     margin-left: 10px;
   }
 `;
