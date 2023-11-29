@@ -7,6 +7,8 @@ import ReviewModal from "./ReviewModal";
 import fetchUserReviewsRatings from "../../utils/fetchUserReviewsRatings";
 import RightColumnGraph from "./RightColumnGraph";
 import fetchUserReviewsGraph from "../../utils/fetchUserReviewsGraph";
+import SortingSearchItems from "./SortingSearchItems";
+import FilterItems from "./FilterItems";
 
 // Modal react-modal doc
 Modal.setAppElement("#root");
@@ -168,6 +170,11 @@ const ReviewTab = () => {
           />
         </ReviewRatingItem>
       </ReviewRating>
+      <Reviewsection>
+        <SortingSearchItems />
+        <FilterItems />
+        <div></div>
+      </Reviewsection>
     </ReviewContainer>
   );
 };
@@ -245,4 +252,8 @@ const customStyles = {
   },
 };
 
-// const ReviewTextArea = styled.div``;
+const Reviewsection = styled.div`
+  width: 100%;
+  height: 1250px;
+  /* background-color: gray; */
+`;
