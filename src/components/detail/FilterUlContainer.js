@@ -104,6 +104,7 @@ const ScopeDropDownContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   border-radius: 10px;
+  background-color: white;
 `;
 
 const ScopeDropDownHeader = styled.div`
@@ -254,6 +255,7 @@ const FootSize = styled.div`
   justify-content: space-around;
   align-items: center;
   position: relative;
+  z-index: 1;
 `;
 
 const FootSizeDropDownContainer = styled.ul`
@@ -269,6 +271,7 @@ const FootSizeDropDownContainer = styled.ul`
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   border-radius: 10px;
+  background-color: white;
 `;
 
 const FootSizeDropDownHeader = styled.div`

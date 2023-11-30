@@ -49,11 +49,29 @@ const ReviewCreateArea = () => {
 
 export default ReviewCreateArea;
 
+//코드 재사용성 위한 선언
+
+const flexCenterStyles = `
+  display: flex;
+  align-items: center;
+`;
+
+const borderBottomStyles = `
+border-bottom: 1px solid #edf1f6;
+`;
+
+const borderRigthStyles = `
+border-right: 1px solid #edf1f6;
+`;
+
+const UpDownCommentMargin = `
+margin-right: 0.3rem;
+`;
+
 const UserReviewCreateWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 12rem;
-  /* border: 1px solid red; */
   justify-content: space-between;
 `;
 
@@ -61,7 +79,7 @@ const UserReviewCreateLeft = styled.div`
   display: flex;
   width: 70%;
   height: 12rem;
-  border-bottom: 1px solid #dce1e8;
+  ${borderBottomStyles}
   flex-direction: column;
 `;
 
@@ -70,8 +88,12 @@ const UserReviewCreateDate = styled.div`
   height: 2rem;
   display: flex;
   justify-content: space-between;
-  border-right: 1px solid #dce1e8;
+  ${borderRigthStyles}
   margin-top: 1rem;
+  & > div:last-child {
+    //날짜
+    margin-right: 12px;
+  }
 `;
 
 const UserReviewCreate = styled.div`
@@ -79,7 +101,7 @@ const UserReviewCreate = styled.div`
   max-height: 6rem;
   overflow: scroll;
   font-size: 0.8rem;
-  border-right: 1px solid #dce1e8;
+  ${borderRigthStyles}
   &::-webkit-scrollbar {
     width: 0;
   }
@@ -91,52 +113,49 @@ const UserReviewCreateSub = styled.div`
   display: flex;
   font-size: 0.8rem;
   white-space: nowrap;
-  border-right: 1px solid #dce1e8;
+  ${borderRigthStyles}
 `;
 
 const UserReviewCreateUpDown = styled.div`
   display: flex;
   height: 100%;
-  border-right: 1px solid #dce1e8;
+  ${borderRigthStyles}
 `;
 
 const UserReviewCreateUp = styled.div`
-  display: flex;
-  margin-right: 0.3rem;
+  ${flexCenterStyles}
+  ${UpDownCommentMargin}
   height: 100%;
-  align-items: center;
+
   & > div {
-    margin-right: 0.3rem;
+    ${UpDownCommentMargin}
   }
 `;
 
 const UserReviewCreateDown = styled.div`
-  display: flex;
-  margin-right: 0.3rem;
+  ${flexCenterStyles}
+  ${UpDownCommentMargin}
   height: 100%;
-  align-items: center;
+
   & > div {
-    margin-right: 0.3rem;
+    ${UpDownCommentMargin}
   }
 `;
 
 const UserReviewCreateComment = styled.div`
-  display: flex;
+  ${flexCenterStyles}
+  justify-content: center;
   width: 50px;
   height: 100%;
-
-  align-items: center;
-  justify-content: center;
   & div {
-    margin-right: 0.3rem;
+    ${UpDownCommentMargin}
   }
 `;
 
 const UserReviewCreateRight = styled.div`
   width: 30%;
   height: 12rem;
-  /* background-color: greenyellow; */
-  border-bottom: 1px solid #dce1e8;
+  ${borderBottomStyles}
 `;
 
 const UserReviewDataWrapper = styled.div`
