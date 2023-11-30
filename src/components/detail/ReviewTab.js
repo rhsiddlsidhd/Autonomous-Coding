@@ -9,6 +9,7 @@ import RightColumnGraph from "./RightColumnGraph";
 import fetchUserReviewsGraph from "../../utils/fetchUserReviewsGraph";
 import SortingSearchItems from "./SortingSearchItems";
 import FilterItems from "./FilterItems";
+import ReviewCreateArea from "./ReviewCreateArea";
 
 // Modal react-modal doc
 Modal.setAppElement("#root");
@@ -173,7 +174,7 @@ const ReviewTab = () => {
       <Reviewsection>
         <SortingSearchItems />
         <FilterItems />
-        <div></div>
+        <ReviewCreateArea />
       </Reviewsection>
     </ReviewContainer>
   );
