@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import { useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
+import { ThemeProvider } from "styled-components";
+import theme from "./themes/theme";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -43,14 +45,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header isLogin={isLogin} loginout={loginout} />
-        {/* 최상단 BrowserRouter 태그로 감싸기 */}
-        {/* Routes, Route 컴포넌트 사용 */}
-        <Routes>
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/detail" element={<Detail />} />
-          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-        </Routes>
+        {/*theme css 코드 공통코드 모든 페이지 사용하기 위함 */}
+        <ThemeProvider theme={theme}>
+          <Header isLogin={isLogin} loginout={loginout} />
+          {/* 최상단 BrowserRouter 태그로 감싸기 */}
+          {/* Routes, Route 컴포넌트 사용 */}
+          <Routes>
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/detail" element={<Detail />} />
+            <Route
+              path="/login"
+              element={<Login handleLogin={handleLogin} />}
+            />
+          </Routes>
+        </ThemeProvider>
       </div>
     </BrowserRouter>
   );
