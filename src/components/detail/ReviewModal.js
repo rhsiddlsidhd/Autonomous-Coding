@@ -2,7 +2,7 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import submitReview from "../../utils/submitReview";
+import modalSubmitReview from "../../utils/modalSubmitReview";
 
 const ReviewModal = ({
   onClose,
@@ -20,9 +20,10 @@ const ReviewModal = ({
   });
 
   // 전송 버튼 클릭시 해당 issue 데이터를 firebase 로 데이터 전송
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitReview(
+    modalSubmitReview(
       issue,
       setAverageGrade,
       onClose,

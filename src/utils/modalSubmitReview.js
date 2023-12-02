@@ -3,7 +3,7 @@ import { db } from "../firebase";
 import fetchUserReviewsRatings from "./fetchUserReviewsRatings";
 import fetchUserReviewsGraph from "./fetchUserReviewsGraph";
 
-const submitReview = async (
+const modalSubmitReview = async (
   issue,
   setAverageGrade,
   onClose,
@@ -18,6 +18,9 @@ const submitReview = async (
     window.alert("성명, 별점 및 후기는 필수 입력 항목입니다.");
     return;
   }
+  // 작성한 날짜 등록
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString("ko-KR");
 
   try {
     // Firestore에 데이터 추가
@@ -25,6 +28,8 @@ const submitReview = async (
       name: issue.name,
       grade: issue.grade,
       message: issue.message,
+      // 데이터 전송시에 시간을 추가하여 Create 때 활용
+      timestamp: formattedDate,
     });
     // console.log("Document written with ID: ", docRef.id);
 
@@ -54,4 +59,4 @@ const submitReview = async (
   }
 };
 
-export default submitReview;
+export default modalSubmitReview;
