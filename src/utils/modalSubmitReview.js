@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import fetchUserReviewsRatings from "./fetchUserReviewsRatings";
 import fetchUserReviewsGraph from "./fetchUserReviewsGraph";
@@ -19,9 +19,6 @@ const modalSubmitReview = async (
     return;
   }
   // 작성한 날짜 등록
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString("ko-KR");
-
   try {
     // Firestore에 데이터 추가
     const docRef = await addDoc(collection(db, "userReviews"), {
@@ -29,7 +26,7 @@ const modalSubmitReview = async (
       grade: issue.grade,
       message: issue.message,
       // 데이터 전송시에 시간을 추가하여 Create 때 활용
-      timestamp: formattedDate,
+      timestamp: Number(new Date()),
     });
     // console.log("Document written with ID: ", docRef.id);
 

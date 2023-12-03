@@ -1,5 +1,3 @@
-// ReviewItem.js
-
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-const ReviewItem = ({ review }) => {
+const ReviewItem = ({ item }) => {
   const anonymizeName = (name) => {
     return name && name.length > 1
       ? `${name[0]}${"*".repeat(name.length - 1)}`
@@ -22,18 +20,18 @@ const ReviewItem = ({ review }) => {
       <ReviewItemLeft>
         <ReviewItemDate>
           <ReviewItemRating>
-            {review.data.grade >= 1 && (
+            {item.data.grade >= 1 && (
               <div>
-                {[...Array(review.data.grade)].map((_, index) => (
+                {[...Array(item.data.grade)].map((_, index) => (
                   <FontAwesomeIcon key={index} icon={faStar} />
                 ))}
               </div>
             )}
-            <h4>{review.data.grade}</h4>
+            <h4>{item.data.grade}</h4>
           </ReviewItemRating>
-          <div>{review.data.timestamp}</div>
+          <div>{item.formattedDate}</div>
         </ReviewItemDate>
-        <ReviewItemContent>{review.data.message}</ReviewItemContent>
+        <ReviewItemContent>{item.data.message}</ReviewItemContent>
         <ReviewItemSub>
           <ReviewItemUpDown>
             <ReviewItemUp>
@@ -53,7 +51,7 @@ const ReviewItem = ({ review }) => {
       </ReviewItemLeft>
       <ReviewItemRight>
         <ReviewItemDataWrapper>
-          <h5>{anonymizeName(review.data.name)}님의 리뷰입니다</h5>
+          <h5>{anonymizeName(item.data.name)}님의 리뷰입니다</h5>
           {/* 회원정보추가등록 */}
         </ReviewItemDataWrapper>
       </ReviewItemRight>
