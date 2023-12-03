@@ -32,6 +32,12 @@ const ReviewTab = () => {
     notGood: 0,
   });
   const [reviewCount, setReviewCount] = useState(0);
+  //페이지 네비게이션
+  // 전체 데이터 숫자 createReviewData
+  // 처음페이지 마지막페이지
+  // 현재페이지
+  // 보여줄 리뷰 개수 5
+  const [createReviewData, setCreateReviewData] = useState([]);
 
   const handleModalOpen = () => {
     setIsopen(true);
@@ -174,7 +180,10 @@ const ReviewTab = () => {
       <Reviewsection>
         <SortingSearchItems />
         <FilterItems />
-        <ReviewCreateArea />
+        <ReviewCreateArea
+          setCreateReviewData={setCreateReviewData}
+          createReviewData={createReviewData}
+        />
       </Reviewsection>
     </ReviewContainer>
   );
